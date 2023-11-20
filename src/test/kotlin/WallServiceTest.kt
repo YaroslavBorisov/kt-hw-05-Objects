@@ -18,16 +18,22 @@ class WallServiceTest {
 
 
     @Test
-    fun updateExisting() {
+    fun updateExistingTrue() {
         val post = Post()
         WallService.add(post)
 
         val post2 = post.copy(1)
         assertTrue(WallService.update(post2))
 
-        val post3 = post.copy(2)
-        assertFalse(WallService.update(post3))
-
-
     }
+
+    @Test
+    fun updateExistingFalseTrue() {
+        val post = Post()
+        WallService.add(post)
+
+        val post2 = post.copy(2)
+        assertFalse(WallService.update(post2))
+    }
+
 }
