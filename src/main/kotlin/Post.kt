@@ -26,7 +26,8 @@ data class Post(
     val isPinned: Boolean = false,
     val markedAsAds: Boolean = false,
     val isFavourite: Boolean = false,
-    val postponedId: Int = 0
+    val postponedId: Int? = null,
+    val attachments: Array<Attachment>? = null
 )
 
 data class Reposts(val count: Int = 0, val userReported: Boolean = false)
@@ -40,12 +41,12 @@ data class Comments(
 )
 
 data class Views(
-    val Count: Int = 0
+    val count: Int = 0
 )
 
 data class PostSource(val type: String, val platform: String, val data: String, val url: String)
 
-data class Geo(val type: String, val Coordinates: String, val place: Place?)
+data class Geo(val type: String, val coordinates: String, val place: Place?)
 
 data class Place(
     val id: Int,
