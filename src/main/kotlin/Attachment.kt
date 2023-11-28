@@ -5,8 +5,8 @@ interface Attachment {
 }
 
 class PhotoAttachment(
-    val photo: Photo,
-    override val type: String
+    override val type: String,
+    val photo: Photo
 ) : Attachment
 
 class Photo(
@@ -23,7 +23,7 @@ class Photo(
 
 data class Size(val type: String, val url: String, val width: Int, val height: Int)
 
-class AudioAttachment(val audio: Audio, override val type: String) : Attachment
+class AudioAttachment(override val type: String, val audio: Audio) : Attachment
 
 class Audio(
     val id: Int,
@@ -40,7 +40,7 @@ class Audio(
     val isHq: Boolean
 )
 
-class StickerAttachment(val sticker: Sticker, override val type: String) : Attachment
+class StickerAttachment(override val type: String, val sticker: Sticker) : Attachment
 
 class Sticker(
     val productId: Int,
@@ -55,7 +55,7 @@ class Image(
     val width: Int, val height: Int
 )
 
-class DocumentAttachment(val document: Document, override val type: String) : Attachment
+class DocumentAttachment(override val type: String, val document: Document) : Attachment
 
 class Document(
     val id: Int,
@@ -77,7 +77,7 @@ class Graffiti(val src: String, val width: Int, val height: Int)
 
 class PhotoPreview(val sizes: Array<Size>)
 
-class NoteAttachment(val note: Note, override val type: String) : Attachment
+class NoteAttachment(override val type: String, val note: Note) : Attachment
 
 class Note(
     val id: Int,
